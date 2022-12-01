@@ -1,0 +1,96 @@
+digraph test3 {
+	node [shape=doublecircle]
+	0 [label="Start
+void quickSort (int *array, int left, int right)
+##############
+id: 0
+d: left, right, array
+u: None"]
+	node [shape=ellipse]
+	2 [label="if(left < right)
+##############
+id: 2
+d: None
+u: left, right"]
+	node [shape=ellipse]
+	11 [label="int pivot = array[left]
+int low = left
+int high = right
+##############
+id: 11
+d: high, pivot, low
+u: left, right, array"]
+	node [shape=ellipse]
+	11 -> 4
+	4 [label="while (low < high)
+##############
+id: 4
+d: None
+u: high, low"]
+	node [shape=ellipse]
+	9 [label="while (array[high] >= pivot && low < high)
+##############
+id: 9
+d: None
+u: high, pivot, low, array"]
+	node [shape=ellipse]
+	10 [label="
+##############
+id: 10
+d: None
+u: None"]
+	node [shape=ellipse]
+	10 -> 9
+	9 -> 10
+	9 -> 8
+	8 [label="array[low] = array[high]
+##############
+id: 8
+d: array
+u: high, low, array"]
+	node [shape=ellipse]
+	8 -> 6
+	6 [label="while (array[low] <= pivot && low < high)
+##############
+id: 6
+d: None
+u: high, pivot, low, array"]
+	node [shape=ellipse]
+	7 [label="
+##############
+id: 7
+d: None
+u: None"]
+	node [shape=ellipse]
+	7 -> 6
+	6 -> 7
+	6 -> 5
+	5 [label="array[high] = array[low]
+##############
+id: 5
+d: array
+u: high, low, array"]
+	node [shape=ellipse]
+	5 -> 4
+	4 -> 9
+	4 -> 3
+	3 [label="array[low] = pivot
+quickSort(array, left, low - 1)
+quickSort(array, low + 1, right)
+##############
+id: 3
+d: array
+u: array, left, pivot, right, low"]
+	node [shape=ellipse]
+	3 -> 1
+	2 -> 11 [label=True]
+	2 -> 1 [label=False]
+	node [shape=box]
+	1 [label="End
+##############
+id: 1
+d: None
+u: None"]
+	node [shape=ellipse]
+	0 -> 2
+}
